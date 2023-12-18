@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src * data: gap: content: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <link rel="stylesheet" href="components/loader.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1 class="title">家計簿アプリ</h1>
+    <div>
+        <button class="button" id="loadButton">データ読み込み</button>
+        <button class="button" id="saveButton">データ保存</button>
+    </div>
+    <table id="data_table">
+        <thead>
+        <tr>
+            <th>日付</th>
+            <th>項目</th>
+            <th>金額</th>
+            <th>操作</th>
+        </tr>
+        <tr>
+            <th><input id="input_date" type="date" placeholder="日付" value="2023-12-01"></th>
+            <th><input id="input_item" type="text" placeholder="項目"></th>
+            <th><input id="input_price" type="number" placeholder="金額"></th>
+            <th>
+                <button class="button button-small" id="addButton">追加</button>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- 表のデータはJavaScriptによって動的に生成されます -->
+        </tbody>
+    </table>
+</div>
+<script type="module">
+    import { onClickAdd, onClickLoad, onClickSave } from './app.js';
+
+    document.getElementById('addButton').addEventListener('click', onClickAdd);
+    document.getElementById('loadButton').addEventListener('click', onClickLoad);
+    document.getElementById('saveButton').addEventListener('click', onClickSave);
+</script>
+</body>
+</html>
